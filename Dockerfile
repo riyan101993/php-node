@@ -1,4 +1,3 @@
-FROM node:10.19-alpine
 FROM php:7.2.24-fpm-stretch
 
 
@@ -20,6 +19,11 @@ RUN cd /tmp && git clone https://github.com/git-ftp/git-ftp.git && cd git-ftp \
     && mv git-ftp /usr/local/bin && chmod +x /usr/local/bin
 
 RUN docker-php-ext-install sockets
+
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN apt-get install -y nodejs
+RUN apt-get install -y npm
+RUN npm i -g yarn
 
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
