@@ -8,6 +8,7 @@ RUN apt-get install -y libaio-dev supervisor nano openssl unixodbc zip unzip git
 
 
 RUN docker-php-ext-install zip
+RUN docker-php-ext-install gd
 RUN docker-php-ext-install pcntl
 RUN docker-php-ext-install bcmath
 RUN pecl install sqlsrv pdo_sqlsrv
