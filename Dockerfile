@@ -1,10 +1,9 @@
-FROM php:7.2.24-fpm-stretch
+FROM php:7.3.11-fpm-stretch
 
 # Oracle instantclient
 ADD oracle/instantclient-basic-linux.x64-11.2.0.4.0.zip /tmp/instantclient-basic-linux.x64-11.2.0.4.0.zip
 ADD oracle/instantclient-sdk-linux.x64-11.2.0.4.0.zip /tmp/instantclient-sdk-linux.x64-11.2.0.4.0.zip
 ADD oracle/instantclient-sqlplus-linux.x64-11.2.0.4.0.zip /tmp/instantclient-sqlplus-linux.x64-11.2.0.4.0.zip
-
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
@@ -39,7 +38,7 @@ RUN cd /tmp && git clone https://github.com/git-ftp/git-ftp.git && cd git-ftp \
 
 RUN docker-php-ext-install sockets
 
-RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 RUN apt-get install -y nodejs
 RUN apt-get install -y npm
 RUN npm i -g yarn
