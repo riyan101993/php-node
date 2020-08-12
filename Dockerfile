@@ -20,7 +20,6 @@ RUN ACCEPT_EULA=Y apt-get install mssql-tools
 RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
 RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
 CMD source /root/.bashrc
-# RUN source ~/.bashrc
 
 
 RUN unzip /tmp/instantclient-basic-linux.x64-11.2.0.4.0.zip -d /usr/local/
